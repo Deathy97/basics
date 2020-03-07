@@ -1,0 +1,5 @@
+/target/
+.idea/
+CmsTraining.iml
+/src/main/resources/database.mv.db
+/src/main/resources/database.trace.db
