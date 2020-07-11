@@ -13,7 +13,7 @@ public class Controller {
     UserService userService;
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return userService.getAllUsers().get(0).getName();
     }
 }
