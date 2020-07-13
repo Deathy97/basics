@@ -3,7 +3,7 @@
 
 <mapper namespace="es.rafa.cmstraining.myBatisMapper.Mapper">
 
-    <select id="getAllUsers" resultType="es.rafa.cmstraining.dto.UserDTO">
+    <select id="getAllUsers" resultType="es.rafa.cmstraining.DAO.UserDAO">
         SELECT
         id as id,
         first_name as name,

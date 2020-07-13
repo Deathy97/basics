@@ -1,10 +1,15 @@
 package es.rafa.cmstraining.controller;
 
+import es.rafa.cmstraining.dto.UserDTO;
 import es.rafa.cmstraining.service.userService.UserService;
-import es.rafa.cmstraining.service.userService.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -12,8 +17,18 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/")
-    public String home() {
-        return userService.getAllUsers().get(0).getName();
+    @GetMapping("/getAllUsers")
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(userService.getAllUsers());
     }
+
+//    @GetMapping("/getAllUsers")
+//    public List<UserDTO> getAllUsers() {
+//        return userService.getAllUsers();
+//    }
+
+
 }
