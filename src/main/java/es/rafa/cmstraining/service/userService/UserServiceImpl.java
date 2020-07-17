@@ -17,7 +17,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> getAllUsers() {
-
         return databaseMapper.getAllUsers().stream().map(userMapper::toDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public Integer addUser(UserDTO user) {
+        return databaseMapper.insertUser(userMapper.toDAO(user));
+    }
+
+    @Override
+    public UserDTO getUserById(Long id) {
+        return userMapper.toDTO(databaseMapper.getUserById(id));
+    }
+
+    @Override
+    public Integer updateUser(UserDTO user) {
+        return databaseMapper.updateUser(userMapper.toDAO(user));
     }
 }

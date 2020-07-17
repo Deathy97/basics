@@ -8,4 +8,10 @@ import java.util.List;
 public interface Mapper {
 
     List<UserDAO> getAllUsers();
+
+    Integer insertUser(UserDAO toDAO);
+
+    UserDAO getUserById(Long id);
+
+    Integer updateUser(UserDAO toDAO);
 }

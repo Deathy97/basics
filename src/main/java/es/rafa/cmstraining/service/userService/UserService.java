@@ -7,4 +7,10 @@ import java.util.List;
 public interface UserService {
 
     public List<UserDTO> getAllUsers();
+
+    public Integer addUser(UserDTO user);
+
+    UserDTO getUserById(Long id);
+
+    Integer updateUser(UserDTO user);
 }

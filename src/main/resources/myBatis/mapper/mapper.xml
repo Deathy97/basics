@@ -11,4 +11,21 @@
         FROM users
     </select>
 
+    <select id="getUserById" resultType="es.rafa.cmstraining.DAO.UserDAO">
+        SELECT
+        id as id,
+        first_name as name,
+        last_name as lastName
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="es.rafa.cmstraining.DAO.UserDAO">
+        INSERT INTO users (first_name, last_name) values (#{name},#{lastName});
+    </insert>
+
+    <update id="updateUser" parameterType="es.rafa.cmstraining.DAO.UserDAO">
+        UPDATE users SET first_name = #{name}, last_name = #{lastName} WHERE id = #{id};
+    </update>
+
 </mapper>
