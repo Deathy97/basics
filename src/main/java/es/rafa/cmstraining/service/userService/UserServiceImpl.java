@@ -34,4 +34,9 @@ public class UserServiceImpl implements UserService {
     public Integer updateUser(UserDTO user) {
         return databaseMapper.updateUser(userMapper.toDAO(user));
     }
+
+    @Override
+    public Integer deleteUser(Long id) {
+        return databaseMapper.deleteUser(id);
+    }
 }
