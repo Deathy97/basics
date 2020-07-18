@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="es.rafa.cmstraining.myBatisMapper.DbClientMapper">
+
+    <select id="getAllClients" resultType="es.rafa.cmstraining.DAO.clientDAO.ClientDAO">
+        SELECT
+        id as id,
+        first_name as name,
+        last_name as lastName
+        FROM CLIENTS
+    </select>
+
+    <select id="getClientById" resultType="es.rafa.cmstraining.DAO.clientDAO.ClientDAO">
+        SELECT
+        id as id,
+        first_name as name,
+        last_name as lastName
+        FROM CLIENTS
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertClient" useGeneratedKeys="true" keyProperty="id" parameterType="es.rafa.cmstraining.DAO.clientDAO.ClientDAO">
+        INSERT INTO CLIENTS (first_name, last_name) values (#{name},#{lastName});
+    </insert>
+
+    <update id="updateClient" parameterType="es.rafa.cmstraining.DAO.clientDAO.ClientDAO">
+        UPDATE CLIENTS SET first_name = #{name}, last_name = #{lastName} WHERE id = #{id};
+    </update>
+
+    <delete id="deleteClient" parameterType="Long">
+        DELETE FROM CLIENTS WHERE id = #{id};
+    </delete>
+
+</mapper>

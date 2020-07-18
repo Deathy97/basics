@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/getUserById/{id}")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable("id") Long id){
+    public ResponseEntity<UserDTO> getUserById(@PathVariable("id") Long id) {
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
@@ -50,5 +50,15 @@ public class UserController {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body("User actualizado correctamente");
 
+    }
+
+    @DeleteMapping("/deleteUser/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        Integer deleted = userService.deleteUser(id);
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body("User borrado correctamente");
     }
 }

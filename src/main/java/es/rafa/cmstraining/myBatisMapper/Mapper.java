@@ -14,4 +14,6 @@ public interface Mapper {
     UserDAO getUserById(Long id);
 
     Integer updateUser(UserDAO toDAO);
+
+    Integer deleteUser(Long id);
 }

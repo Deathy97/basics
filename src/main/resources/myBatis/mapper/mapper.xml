@@ -28,4 +28,8 @@
         UPDATE users SET first_name = #{name}, last_name = #{lastName} WHERE id = #{id};
     </update>
 
+    <delete id="deleteUser" parameterType="Long">
+        DELETE FROM users WHERE id = #{id};
+    </delete>
+
 </mapper>
